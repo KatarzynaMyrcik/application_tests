@@ -1,0 +1,8 @@
+ubuntu20 ansible_host=192.168.1.125 ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/.ssh/id_rsa ansible_sudo=yes ansible_become=yes
+ubuntu22 ansible_host=192.168.1.161 ansible_user=osboxes ansible_password=osboxes.org ansible_ssh_private_key_file=/home/osboxes/.ssh/id_rsa ansible_sudo=yes ansible_become=yes
+Ubuntu18 ansible_host=192.168.1.203 ansible_user=osboxes ansible_password=osboxes.org ansible_ssh_private_key_file=/home/osboxes/.ssh/id_rsa ansible_sudo=yes ansible_become=yes
+
+[grupa_hostow]
+ubuntu20
+ubuntu22
+Ubuntu18

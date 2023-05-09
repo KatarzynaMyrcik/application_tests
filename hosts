@@ -1,0 +1,7 @@
+[servers]
+ubuntu20 ansible_host=192.168.1.125
+ubuntu22 ansible_host=192.168.1.161
+Ubuntu18 ansible_host=192.168.1.203
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3

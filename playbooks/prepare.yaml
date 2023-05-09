@@ -1,0 +1,31 @@
+--- #This file setup all node for using ansible.
+#Copyrights Kasia
+#Kasia Myrcik
+
+- name: Prepare all host for using ansible scripts
+  hosts: grupa_hostow
+  pre_tasks:
+          - name: Kill all apt process and unlock lock apt apt-get
+            raw: killall apt apt-get
+            ignore_errors: yes
+          - name: Remove /var/lib/apt/lists/lock
+            raw: rm /var/lib/apt/lists/lock
+            ignore_errors: yes
+          - name: Remove /var/cache/apt/archives/lock
+            raw: rm /var/cache/apt/archives/lock
+            ignore_errors: yes
+          - name: Remove /var/lib/dpkg/lock
+            raw: rm /var/lib/dpkg/lock
+            ignore_errors: yes
+          - name: Reconfigure dpkg
+            raw: dpkg --configure -a
+            ignore_errors: yes
+          - name: Update package
+            raw: apt-get update
+          - name: Intall needed packages
+            raw: "apt-get install {{ item }} -y"
+            with_items:
+                    - python3.10
+                    - python-pip
+          - name: Update pip
+            raw: pip install -U pip
